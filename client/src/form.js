@@ -25,7 +25,10 @@ class ContactForm extends React.Component {
         default: alert('No data entered');
                }       }
     handleSubmit(event) {
-      alert('The following data was submitted: ' + this.state.name + this.state.email + this.state.phone + this.state.message);
+     
+      fetch(`/data?name=${this.state.name}&email=${this.state.email}&phone=${this.state.phone}&message=${this.state.message}`).then(
+        () =>  alert('The following data was submitted: ' + this.state.name + this.state.email + this.state.phone + this.state.message)
+    )
       event.preventDefault();
     }
   
